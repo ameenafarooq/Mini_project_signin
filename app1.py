@@ -18,7 +18,7 @@ def add_userdata(username,password,name,email):
     cur=conn.cursor()
     if cur.execute('SELECT * FROM userstable WHERE username=?',(username,)):
         if cur.fetchone():
-            st.warning('Error User Already Exist Try with Another Useranme')
+            st.warning('Error User Already Exist Try with Another Username')
         else:
             conn.execute('INSERT INTO userstable(username,password,name,email_id) VALUES(?,?,?,?)',(username,password,name,email))
             st.success("You have successfully created a valid account")
@@ -94,7 +94,7 @@ def main():
                 st.success("Logged in as {}".format(username))
                 clean_blocks(blk1)
                 clean_blocks(blk2)
-                st.write("Get your prediction know [link](https://share.streamlit.io/ameenafarooq/mini-project-sem-6/main/app2.py)")
+                st.write("Get your prediction now [link](https://share.streamlit.io/ameenafarooq/mini-project-sem-6/main/app2.py)")
             else:
                 st.warning("Incorrect username/password")
     else:
